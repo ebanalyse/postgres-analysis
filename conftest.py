@@ -43,8 +43,6 @@ class RandomTablenameGenerator:
         self.history.append(tablename)
         return tablename
 
-    
-
 
 @pytest.fixture
 def random_tablename():
