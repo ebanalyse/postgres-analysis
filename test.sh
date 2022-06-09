@@ -4,4 +4,6 @@ container=$(docker run -d --network=host --rm -it -ePOSTGRES_PASSWORD=postgres -
 
 sleep 5
 
-pytest -s "$@"
+pytest -v -s "$@"
+
+docker stop ${container}

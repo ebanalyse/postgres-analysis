@@ -1,7 +1,7 @@
 from contextlib import contextmanager
-import os
 
 from datetime import datetime
+import random
 
 
 def execute_and_measure(postgres_connection, random_tablename: str, statements: str | list[str]):
@@ -15,10 +15,12 @@ def execute_and_measure(postgres_connection, random_tablename: str, statements: 
                 if "select" in sql.lower():
                     sql = "EXPLAIN ANALYZE " + sql
                 formatted_statements.items.append(sql)
+                print()
                 with measure(sql):
                     cursor.execute(sql)
                 if "explain analyze" in sql.lower():
-                    print("\n".join("".join(row) for row in cursor.fetchall()) + "\n")
+                    for line in ("".join(row) for row in cursor.fetchall()):
+                        print("\t" + line)
 
 
 class LazyJoinedString:
@@ -38,4 +40,27 @@ def measure(description):
     difference = stop - start
     total_seconds = str(difference.total_seconds())
     print(description, "::::", total_seconds, "seconds")
-    print("-" * os.get_terminal_size().columns + "\n")
+
+
+class History:
+    def __init__(self):
+        self.history: list[str] = []
+
+    def __getitem__(self, item: str):
+        return self.history[int(item)]
+
+    def append(self, item: str):
+        self.history.append(item)
+
+
+class RandomTablenameGenerator:
+    def __init__(self, alphabet: str, size: int):
+        self.alphabet = alphabet
+        self.size = size
+        self.history = History()
+
+    @property
+    def next(self):
+        tablename = "".join(random.choice(self.alphabet) for _ in range(self.size))
+        self.history.append(tablename)
+        return tablename
