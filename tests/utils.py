@@ -60,6 +60,14 @@ class RandomTablenameGenerator:
         self.history = History()
 
     @property
+    def first(self):
+        return self.history[0]
+
+    @property
+    def previous(self):
+        return self.history[-1]
+
+    @property
     def next(self):
         tablename = "".join(random.choice(self.alphabet) for _ in range(self.size))
         self.history.append(tablename)
