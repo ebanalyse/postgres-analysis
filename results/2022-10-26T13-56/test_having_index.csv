@@ -1,0 +1,19 @@
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE qbqcjjesdiugvuan AS SELECT ROUND(RANDOM() * 50000) AS user_id, ('{ekstrabladet,jyllandsposten,politiken}'::TEXT[])[ROUND(RANDOM() * 2)] AS platform FROM generate_series(1, 10000000);4.163082
+EXPLAIN ANALYZE SELECT user_id FROM qbqcjjesdiugvuan GROUP BY user_id HAVING COUNT(*) FILTER (WHERE platform = 'ekstrabladet') > 2;2.743022
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE bmghwcecqqcgpctb AS SELECT ROUND(RANDOM() * 50000) AS user_id, ('{ekstrabladet,jyllandsposten,politiken}'::TEXT[])[ROUND(RANDOM() * 2)] AS platform FROM generate_series(1, 10000000);4.128773
+CREATE INDEX ON bmghwcecqqcgpctb (platform, user_id);11.876852
+EXPLAIN ANALYZE SELECT user_id FROM bmghwcecqqcgpctb GROUP BY user_id HAVING COUNT(*) FILTER (WHERE platform = 'ekstrabladet') > 2;2.504875
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE vzhveqplpjbdhnst AS SELECT ROUND(RANDOM() * 50000) AS user_id, ('{ekstrabladet,jyllandsposten,politiken}'::TEXT[])[ROUND(RANDOM() * 2)] AS platform FROM generate_series(1, 10000000);4.205534
+CREATE INDEX ON vzhveqplpjbdhnst (user_id, platform);7.03394
+EXPLAIN ANALYZE SELECT user_id FROM vzhveqplpjbdhnst GROUP BY user_id HAVING COUNT(*) FILTER (WHERE platform = 'ekstrabladet') > 2;2.54863
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE yeixsgnfdmvfypln AS SELECT ROUND(RANDOM() * 50000) AS user_id, ('{ekstrabladet,jyllandsposten,politiken}'::TEXT[])[ROUND(RANDOM() * 2)] AS platform FROM generate_series(1, 10000000);4.040339
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE gfjgdiywcbtdxdtq AS SELECT platform, user_id, COUNT(*) AS count FROM yeixsgnfdmvfypln GROUP BY platform, user_id;3.960339
+EXPLAIN ANALYZE SELECT user_id FROM gfjgdiywcbtdxdtq WHERE platform = 'ekstrabladet' AND count > 2;0.009175
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE mugreigydtbpoluc AS SELECT ROUND(RANDOM() * 50000) AS user_id, ('{ekstrabladet,jyllandsposten,politiken}'::TEXT[])[ROUND(RANDOM() * 2)] AS platform FROM generate_series(1, 10000000);4.27819
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE dpghauchmxowqjzm AS SELECT platform, user_id, COUNT(*) AS count FROM mugreigydtbpoluc GROUP BY platform, user_id;4.143378
+CREATE INDEX ON dpghauchmxowqjzm (platform, user_id) INCLUDE (count);0.113364
+EXPLAIN ANALYZE SELECT user_id FROM dpghauchmxowqjzm WHERE platform = 'ekstrabladet' AND count > 2;0.010651
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE lmhjhwkcayckdhxk AS SELECT ROUND(RANDOM() * 50000) AS user_id, ('{ekstrabladet,jyllandsposten,politiken}'::TEXT[])[ROUND(RANDOM() * 2)] AS platform FROM generate_series(1, 10000000);4.218763
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE gdmdkyxhpovktgzr AS SELECT platform, user_id, COUNT(*) AS count FROM lmhjhwkcayckdhxk GROUP BY platform, user_id;4.105365
+CREATE INDEX ON gdmdkyxhpovktgzr (platform, count) INCLUDE (user_id);0.121123
+EXPLAIN ANALYZE SELECT user_id FROM gdmdkyxhpovktgzr WHERE platform = 'ekstrabladet' AND count > 2;0.010905

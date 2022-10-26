@@ -1,0 +1,2 @@
+EXPLAIN ANALYZE CREATE TABLE qqkcpgqrskfzcjhd AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.620898
+EXPLAIN ANALYZE CREATE UNLOGGED TABLE rvnbgrxmlrkqckzh AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.338944
