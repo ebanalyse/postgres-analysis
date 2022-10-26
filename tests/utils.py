@@ -1,22 +1,30 @@
 from contextlib import contextmanager
 
 from datetime import datetime
+import os
 import random
 
 
-def execute_and_measure(postgres_connection, random_tablename: str, statements: str | list[str]):
+def execute_and_measure(
+    postgres_connection,
+    random_tablename: str,
+    statements: str | list[str],
+    results_filename: str = "",
+    test_run_start_time="",
+):
     if isinstance(statements, str):
         statements = [statements]
 
     with postgres_connection.cursor() as cursor:
-        with measure(LazyJoinedString("; ", [])) as formatted_statements:
+        with measure(LazyJoinedString("; ", []), results_filename, test_run_start_time) as formatted_statements:
+
             for statement in statements:
                 sql = statement.format(tablename=random_tablename)
                 if "select" in sql.lower():
                     sql = "EXPLAIN ANALYZE " + sql
                 formatted_statements.items.append(sql)
                 print()
-                with measure(sql):
+                with measure(sql, results_filename, test_run_start_time):
                     cursor.execute(sql)
                 if "explain analyze" in sql.lower():
                     for line in ("".join(row) for row in cursor.fetchall()):
@@ -33,13 +41,17 @@ class LazyJoinedString:
 
 
 @contextmanager
-def measure(description):
+def measure(description, results_file: str, test_run_start_time):
     start = datetime.now()
     yield description
     stop = datetime.now()
     difference = stop - start
     total_seconds = str(difference.total_seconds())
     print(description, "::::", total_seconds, "seconds")
+    with open(
+        os.getcwd() + "/results/" + test_run_start_time + "/" + results_file.split("/")[-1].split(".")[0] + ".csv", "a"
+    ) as file:
+        file.write(str(str(description) + ";" + total_seconds + "\n"))
 
 
 class History:

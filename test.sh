@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-container=$(docker run -d --network=host --rm -it -ePOSTGRES_PASSWORD=postgres -ePGUSER=postgres -ePGPASSWORD=postgres postgres:14.1-alpine)
+container=$(docker run -d --rm -it -e POSTGRES_PASSWORD=postgres -e PGUSER=postgres -e PGPASSWORD=postgres -p 5432:5432 postgres:14.1-alpine)
 
 sleep 5
 

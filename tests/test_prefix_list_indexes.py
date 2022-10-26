@@ -19,7 +19,7 @@ def csv_buffer(request):
             else:
                 prefix = suffix
             rows.append((prefix,))
-    
+
     buffer = StringIO()
     writer = csv.writer(buffer)
     writer.writerows(rows * 100_000)
@@ -42,7 +42,13 @@ def csv_buffer(request):
         ],
     ],
 )
-def test_btree_performance(postgres_connection, random_tablename: RandomTablenameGenerator, csv_buffer, statements: str | list[str]):
+def test_btree_performance(
+    postgres_connection,
+    random_tablename: RandomTablenameGenerator,
+    csv_buffer,
+    statements: str | list[str],
+    test_run_start_time,
+):
     tablename = random_tablename.next
 
     with postgres_connection.cursor() as cursor:
@@ -52,7 +58,7 @@ def test_btree_performance(postgres_connection, random_tablename: RandomTablenam
             tablename,
         )
 
-    execute_and_measure(postgres_connection, random_tablename, statements)
+    execute_and_measure(postgres_connection, random_tablename, statements, __file__, test_run_start_time)
 
 
 @pytest.mark.parametrize(
@@ -65,7 +71,13 @@ def test_btree_performance(postgres_connection, random_tablename: RandomTablenam
         ],
     ],
 )
-def test_tsvector_performance(postgres_connection, random_tablename: RandomTablenameGenerator, csv_buffer, statements: str | list[str]):
+def test_tsvector_performance(
+    postgres_connection,
+    random_tablename: RandomTablenameGenerator,
+    csv_buffer,
+    statements: str | list[str],
+    test_run_start_time,
+):
     tablename = random_tablename.next
 
     with postgres_connection.cursor() as cursor:
@@ -75,4 +87,4 @@ def test_tsvector_performance(postgres_connection, random_tablename: RandomTable
             tablename,
         )
 
-    execute_and_measure(postgres_connection, random_tablename, statements)
+    execute_and_measure(postgres_connection, random_tablename, statements, __file__, test_run_start_time)

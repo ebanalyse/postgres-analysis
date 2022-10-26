@@ -34,11 +34,5 @@ from .utils import execute_and_measure
         ],
     ],
 )
-def test_performance(
-    postgres_connection, random_tablename: str, statements: str | list[str]
-):
-    execute_and_measure(
-        postgres_connection,
-        random_tablename,
-        statements,
-    )
+def test_performance(postgres_connection, random_tablename: str, statements: str | list[str]):
+    execute_and_measure(postgres_connection, random_tablename, statements, __file__)
