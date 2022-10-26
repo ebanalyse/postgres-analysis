@@ -1,0 +1,20 @@
+CREATE TABLE nhidcsfxokwbedui (partition_id INT NOT NULL, user_id INT NOT NULL, PRIMARY KEY (partition_id, user_id)) PARTITION BY LIST(partition_id);0.002498
+CREATE TABLE eovpiypsmkawpoyo PARTITION OF nhidcsfxokwbedui FOR VALUES IN (1);0.004031
+EXPLAIN ANALYZE INSERT INTO nhidcsfxokwbedui (partition_id, user_id) SELECT 1 AS partition_id, generate_series AS user_id FROM generate_series(1, 1000000);2.46986
+EXPLAIN ANALYZE SELECT user_id FROM eovpiypsmkawpoyo;0.120903
+CREATE TABLE nhidcsfxokwbedui (partition_id INT NOT NULL, user_id INT NOT NULL, PRIMARY KEY (partition_id, user_id)) PARTITION BY LIST(partition_id); CREATE TABLE eovpiypsmkawpoyo PARTITION OF nhidcsfxokwbedui FOR VALUES IN (1); EXPLAIN ANALYZE INSERT INTO nhidcsfxokwbedui (partition_id, user_id) SELECT 1 AS partition_id, generate_series AS user_id FROM generate_series(1, 1000000); EXPLAIN ANALYZE SELECT user_id FROM eovpiypsmkawpoyo;2.598494
+CREATE TABLE wlrnsfdgnwsnwrsr (user_id INT NOT NULL, partition_id INT NOT NULL, PRIMARY KEY (user_id, partition_id)) PARTITION BY LIST(partition_id);0.003872
+CREATE TABLE fxhtewbexvevufox PARTITION OF wlrnsfdgnwsnwrsr FOR VALUES IN (1);0.003514
+EXPLAIN ANALYZE INSERT INTO wlrnsfdgnwsnwrsr (user_id, partition_id) SELECT generate_series AS user_id, 1 AS partition_id FROM generate_series(1, 1000000);2.276825
+EXPLAIN ANALYZE SELECT user_id FROM fxhtewbexvevufox;0.090079
+CREATE TABLE wlrnsfdgnwsnwrsr (user_id INT NOT NULL, partition_id INT NOT NULL, PRIMARY KEY (user_id, partition_id)) PARTITION BY LIST(partition_id); CREATE TABLE fxhtewbexvevufox PARTITION OF wlrnsfdgnwsnwrsr FOR VALUES IN (1); EXPLAIN ANALYZE INSERT INTO wlrnsfdgnwsnwrsr (user_id, partition_id) SELECT generate_series AS user_id, 1 AS partition_id FROM generate_series(1, 1000000); EXPLAIN ANALYZE SELECT user_id FROM fxhtewbexvevufox;2.375427
+CREATE TABLE ghukghuocskmboif (partition_id INT NOT NULL, user_id INT NOT NULL, PRIMARY KEY (partition_id, user_id)) PARTITION BY LIST(partition_id);0.002917
+CREATE TABLE wadhyyifrjdlfbli PARTITION OF ghukghuocskmboif FOR VALUES IN (1);0.002925
+EXPLAIN ANALYZE INSERT INTO ghukghuocskmboif (partition_id, user_id) SELECT 1 AS partition_id, generate_series AS user_id FROM generate_series(1, 1000000);2.160973
+EXPLAIN ANALYZE SELECT user_id FROM ghukghuocskmboif WHERE partition_id = 1;0.12943
+CREATE TABLE ghukghuocskmboif (partition_id INT NOT NULL, user_id INT NOT NULL, PRIMARY KEY (partition_id, user_id)) PARTITION BY LIST(partition_id); CREATE TABLE wadhyyifrjdlfbli PARTITION OF ghukghuocskmboif FOR VALUES IN (1); EXPLAIN ANALYZE INSERT INTO ghukghuocskmboif (partition_id, user_id) SELECT 1 AS partition_id, generate_series AS user_id FROM generate_series(1, 1000000); EXPLAIN ANALYZE SELECT user_id FROM ghukghuocskmboif WHERE partition_id = 1;2.296957
+CREATE TABLE rladngjmowuicgjn (user_id INT NOT NULL, partition_id INT NOT NULL, PRIMARY KEY (user_id, partition_id)) PARTITION BY LIST(partition_id);0.003046
+CREATE TABLE vrtfhjttxcfoeqdw PARTITION OF rladngjmowuicgjn FOR VALUES IN (1);0.002997
+EXPLAIN ANALYZE INSERT INTO rladngjmowuicgjn (user_id, partition_id) SELECT generate_series AS user_id, 1 AS partition_id FROM generate_series(1, 1000000);2.149558
+EXPLAIN ANALYZE SELECT user_id FROM rladngjmowuicgjn WHERE partition_id = 1;0.155493
+CREATE TABLE rladngjmowuicgjn (user_id INT NOT NULL, partition_id INT NOT NULL, PRIMARY KEY (user_id, partition_id)) PARTITION BY LIST(partition_id); CREATE TABLE vrtfhjttxcfoeqdw PARTITION OF rladngjmowuicgjn FOR VALUES IN (1); EXPLAIN ANALYZE INSERT INTO rladngjmowuicgjn (user_id, partition_id) SELECT generate_series AS user_id, 1 AS partition_id FROM generate_series(1, 1000000); EXPLAIN ANALYZE SELECT user_id FROM rladngjmowuicgjn WHERE partition_id = 1;2.312286

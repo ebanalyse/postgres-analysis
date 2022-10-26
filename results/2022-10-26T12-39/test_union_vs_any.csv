@@ -1,0 +1,30 @@
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE nyvnxztazmrbalat AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.550566
+EXPLAIN ANALYZE 
+            SELECT nyvnxztazmrbalat.id FROM nyvnxztazmrbalat WHERE nyvnxztazmrbalat.id = 250
+            UNION
+            SELECT nyvnxztazmrbalat.id FROM nyvnxztazmrbalat WHERE nyvnxztazmrbalat.id = 750
+            ;0.11658
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE nyvnxztazmrbalat AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000); EXPLAIN ANALYZE 
+            SELECT nyvnxztazmrbalat.id FROM nyvnxztazmrbalat WHERE nyvnxztazmrbalat.id = 250
+            UNION
+            SELECT nyvnxztazmrbalat.id FROM nyvnxztazmrbalat WHERE nyvnxztazmrbalat.id = 750
+            ;0.667623
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE kfnwgtpfpfwjrfpx AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.59976
+EXPLAIN ANALYZE SELECT kfnwgtpfpfwjrfpx.id FROM kfnwgtpfpfwjrfpx WHERE kfnwgtpfpfwjrfpx.id IN (250, 750);0.099259
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE kfnwgtpfpfwjrfpx AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000); EXPLAIN ANALYZE SELECT kfnwgtpfpfwjrfpx.id FROM kfnwgtpfpfwjrfpx WHERE kfnwgtpfpfwjrfpx.id IN (250, 750);0.699789
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE olcqhhgiekoqozjq AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.899077
+CREATE INDEX ON olcqhhgiekoqozjq (id);0.951847
+EXPLAIN ANALYZE 
+            SELECT olcqhhgiekoqozjq.id FROM olcqhhgiekoqozjq WHERE olcqhhgiekoqozjq.id = 250
+            UNION
+            SELECT olcqhhgiekoqozjq.id FROM olcqhhgiekoqozjq WHERE olcqhhgiekoqozjq.id = 750
+            ;0.014804
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE olcqhhgiekoqozjq AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000); CREATE INDEX ON olcqhhgiekoqozjq (id); EXPLAIN ANALYZE 
+            SELECT olcqhhgiekoqozjq.id FROM olcqhhgiekoqozjq WHERE olcqhhgiekoqozjq.id = 250
+            UNION
+            SELECT olcqhhgiekoqozjq.id FROM olcqhhgiekoqozjq WHERE olcqhhgiekoqozjq.id = 750
+            ;1.867056
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE ofscycwbpiusfbkq AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);1.365485
+CREATE INDEX ON ofscycwbpiusfbkq (id);1.473263
+EXPLAIN ANALYZE SELECT ofscycwbpiusfbkq.id FROM ofscycwbpiusfbkq WHERE ofscycwbpiusfbkq.id IN (250, 750);0.011043
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE ofscycwbpiusfbkq AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000); CREATE INDEX ON ofscycwbpiusfbkq (id); EXPLAIN ANALYZE SELECT ofscycwbpiusfbkq.id FROM ofscycwbpiusfbkq WHERE ofscycwbpiusfbkq.id IN (250, 750);2.851987
