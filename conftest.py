@@ -24,7 +24,6 @@ def random_tablename():
 @pytest.fixture(autouse=True, scope="session")
 def test_run_start_time():
     test_start_time = set_test_start_time()
-    print(test_start_time)
     return test_start_time
 
 
