@@ -20,7 +20,11 @@ def execute_and_measure(
 
             for statement in statements:
                 sql = statement.format(tablename=random_tablename)
-                if "select" in sql.lower():
+                if (
+                    "select" in sql.lower()
+                    and "create view" not in sql.lower()
+                    and "create materialized" not in sql.lower()
+                ):
                     sql = "EXPLAIN ANALYZE " + sql
                 formatted_statements.items.append(sql)
                 print()

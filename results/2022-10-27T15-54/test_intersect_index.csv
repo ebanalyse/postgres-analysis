@@ -1,0 +1,16 @@
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE jwtybhnzchixxloc AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.510152
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE dluwogrgighmiabt AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.508143
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE jyivrkxjaxxnqqsh AS SELECT jwtybhnzchixxloc.id FROM jwtybhnzchixxloc INTERSECT SELECT dluwogrgighmiabt.id FROM dluwogrgighmiabt;1.30656
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE exgxvaijfxijpsgt AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.513029
+CREATE INDEX ON exgxvaijfxijpsgt (id);0.21751
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE hexhlrcfgbzhyfsj AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.496717
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE toqoaavavvvjclnt AS SELECT exgxvaijfxijpsgt.id FROM exgxvaijfxijpsgt INTERSECT SELECT hexhlrcfgbzhyfsj.id FROM hexhlrcfgbzhyfsj;1.19541
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE vicdplltyyhumhqv AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.494229
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE qawyfhsscuhstvcc AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.482856
+CREATE INDEX ON qawyfhsscuhstvcc (id);0.20486
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE rrvfjqbdqdwfbzkx AS SELECT vicdplltyyhumhqv.id FROM vicdplltyyhumhqv INTERSECT SELECT qawyfhsscuhstvcc.id FROM qawyfhsscuhstvcc;1.166749
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE qfjaolgedecafvsm AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.489576
+CREATE INDEX ON qfjaolgedecafvsm (id);0.211471
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE pdazccigrluctgic AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.477832
+CREATE INDEX ON pdazccigrluctgic (id);0.241901
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE mdcuxswplwzhhbcv AS SELECT qfjaolgedecafvsm.id FROM qfjaolgedecafvsm INTERSECT SELECT pdazccigrluctgic.id FROM pdazccigrluctgic;1.182027

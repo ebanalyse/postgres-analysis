@@ -1,0 +1,18 @@
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE ullhlzofstalelsw AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.502506
+EXPLAIN ANALYZE 
+            SELECT ullhlzofstalelsw.id FROM ullhlzofstalelsw WHERE ullhlzofstalelsw.id = 250
+            UNION
+            SELECT ullhlzofstalelsw.id FROM ullhlzofstalelsw WHERE ullhlzofstalelsw.id = 750
+            ;0.116693
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE yjsdksqvdkprlhzb AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.526551
+EXPLAIN ANALYZE SELECT yjsdksqvdkprlhzb.id FROM yjsdksqvdkprlhzb WHERE yjsdksqvdkprlhzb.id IN (250, 750);0.08365
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE rvafiiqpevzyjrqu AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.55804
+CREATE INDEX ON rvafiiqpevzyjrqu (id);0.604715
+EXPLAIN ANALYZE 
+            SELECT rvafiiqpevzyjrqu.id FROM rvafiiqpevzyjrqu WHERE rvafiiqpevzyjrqu.id = 250
+            UNION
+            SELECT rvafiiqpevzyjrqu.id FROM rvafiiqpevzyjrqu WHERE rvafiiqpevzyjrqu.id = 750
+            ;0.00838
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE gdakikzzshuagxha AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.542962
+CREATE INDEX ON gdakikzzshuagxha (id);0.607978
+EXPLAIN ANALYZE SELECT gdakikzzshuagxha.id FROM gdakikzzshuagxha WHERE gdakikzzshuagxha.id IN (250, 750);0.00786
