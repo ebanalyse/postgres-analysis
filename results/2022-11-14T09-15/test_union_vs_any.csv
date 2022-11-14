@@ -1,0 +1,18 @@
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE mgiarfoyenpczjiy AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.339258
+EXPLAIN ANALYZE 
+            SELECT mgiarfoyenpczjiy.id FROM mgiarfoyenpczjiy WHERE mgiarfoyenpczjiy.id = 250
+            UNION
+            SELECT mgiarfoyenpczjiy.id FROM mgiarfoyenpczjiy WHERE mgiarfoyenpczjiy.id = 750
+            ;0.089356
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE diwdklrulfkfonxr AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.345834
+EXPLAIN ANALYZE SELECT diwdklrulfkfonxr.id FROM diwdklrulfkfonxr WHERE diwdklrulfkfonxr.id IN (250, 750);0.056797
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE ecocbjlgzwmajuxp AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.367764
+CREATE INDEX ON ecocbjlgzwmajuxp (id);0.556565
+EXPLAIN ANALYZE 
+            SELECT ecocbjlgzwmajuxp.id FROM ecocbjlgzwmajuxp WHERE ecocbjlgzwmajuxp.id = 250
+            UNION
+            SELECT ecocbjlgzwmajuxp.id FROM ecocbjlgzwmajuxp WHERE ecocbjlgzwmajuxp.id = 750
+            ;0.012251
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE cgazlukmlzamncst AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.317055
+CREATE INDEX ON cgazlukmlzamncst (id);0.392483
+EXPLAIN ANALYZE SELECT cgazlukmlzamncst.id FROM cgazlukmlzamncst WHERE cgazlukmlzamncst.id IN (250, 750);0.005673
