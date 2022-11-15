@@ -1,0 +1,27 @@
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE tpjatumylfypvbpi AS SELECT ROUND(RANDOM() * 10000) AS content_id, gen_random_uuid() AS user_id FROM generate_series(1, 10000000);18.760895
+EXPLAIN ANALYZE SELECT user_id FROM tpjatumylfypvbpi WHERE content_id = 5000;0.487467
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE tpjatumylfypvbpi AS SELECT ROUND(RANDOM() * 10000) AS content_id, gen_random_uuid() AS user_id FROM generate_series(1, 10000000); EXPLAIN ANALYZE SELECT user_id FROM tpjatumylfypvbpi WHERE content_id = 5000;19.24883
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE dtxyajjkiloftmmb AS SELECT ROUND(RANDOM() * 10000) AS content_id, gen_random_uuid() AS user_id FROM generate_series(1, 10000000);18.993146
+CREATE INDEX ON dtxyajjkiloftmmb (content_id);7.917721
+EXPLAIN ANALYZE SELECT user_id FROM dtxyajjkiloftmmb WHERE content_id = 5000;0.005564
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE dtxyajjkiloftmmb AS SELECT ROUND(RANDOM() * 10000) AS content_id, gen_random_uuid() AS user_id FROM generate_series(1, 10000000); CREATE INDEX ON dtxyajjkiloftmmb (content_id); EXPLAIN ANALYZE SELECT user_id FROM dtxyajjkiloftmmb WHERE content_id = 5000;26.916999
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE goatlxjgxqzadffr AS SELECT ROUND(RANDOM() * 10000) AS content_id, gen_random_uuid() AS user_id FROM generate_series(1, 10000000);18.874912
+CREATE INDEX ON goatlxjgxqzadffr (content_id, user_id);9.428067
+EXPLAIN ANALYZE SELECT user_id FROM goatlxjgxqzadffr WHERE content_id = 5000;0.005184
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE goatlxjgxqzadffr AS SELECT ROUND(RANDOM() * 10000) AS content_id, gen_random_uuid() AS user_id FROM generate_series(1, 10000000); CREATE INDEX ON goatlxjgxqzadffr (content_id, user_id); EXPLAIN ANALYZE SELECT user_id FROM goatlxjgxqzadffr WHERE content_id = 5000;28.308805
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE cvjhzpiqaboqobwv AS SELECT ROUND(RANDOM() * 10000) AS content_id, gen_random_uuid() AS user_id FROM generate_series(1, 10000000);22.848947
+CREATE INDEX ON cvjhzpiqaboqobwv (content_id) INCLUDE (user_id);11.603574
+EXPLAIN ANALYZE SELECT user_id FROM cvjhzpiqaboqobwv WHERE content_id = 5000;0.005661
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE cvjhzpiqaboqobwv AS SELECT ROUND(RANDOM() * 10000) AS content_id, gen_random_uuid() AS user_id FROM generate_series(1, 10000000); CREATE INDEX ON cvjhzpiqaboqobwv (content_id) INCLUDE (user_id); EXPLAIN ANALYZE SELECT user_id FROM cvjhzpiqaboqobwv WHERE content_id = 5000;34.458851
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE qdeekchkafptzraf AS SELECT gen_random_uuid() AS user_id, ROUND(RANDOM() * 10000) AS content_id FROM generate_series(1, 10000000);20.470598
+CREATE INDEX ON qdeekchkafptzraf (user_id);8.062886
+EXPLAIN ANALYZE SELECT user_id FROM qdeekchkafptzraf WHERE content_id = 5000;0.514121
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE qdeekchkafptzraf AS SELECT gen_random_uuid() AS user_id, ROUND(RANDOM() * 10000) AS content_id FROM generate_series(1, 10000000); CREATE INDEX ON qdeekchkafptzraf (user_id); EXPLAIN ANALYZE SELECT user_id FROM qdeekchkafptzraf WHERE content_id = 5000;29.048324
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE dsfpiqqawollajdz AS SELECT gen_random_uuid() AS user_id, ROUND(RANDOM() * 10000) AS content_id FROM generate_series(1, 10000000);18.846276
+CREATE INDEX ON dsfpiqqawollajdz (user_id, content_id);11.122362
+EXPLAIN ANALYZE SELECT user_id FROM dsfpiqqawollajdz WHERE content_id = 5000;0.532873
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE dsfpiqqawollajdz AS SELECT gen_random_uuid() AS user_id, ROUND(RANDOM() * 10000) AS content_id FROM generate_series(1, 10000000); CREATE INDEX ON dsfpiqqawollajdz (user_id, content_id); EXPLAIN ANALYZE SELECT user_id FROM dsfpiqqawollajdz WHERE content_id = 5000;30.502156
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE bcsjagadjmnizcwf AS SELECT gen_random_uuid() AS user_id, ROUND(RANDOM() * 10000) AS content_id FROM generate_series(1, 10000000);19.500793
+CREATE INDEX ON bcsjagadjmnizcwf (user_id) INCLUDE (content_id);8.292982
+EXPLAIN ANALYZE SELECT user_id FROM bcsjagadjmnizcwf WHERE content_id = 5000;0.523926
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE bcsjagadjmnizcwf AS SELECT gen_random_uuid() AS user_id, ROUND(RANDOM() * 10000) AS content_id FROM generate_series(1, 10000000); CREATE INDEX ON bcsjagadjmnizcwf (user_id) INCLUDE (content_id); EXPLAIN ANALYZE SELECT user_id FROM bcsjagadjmnizcwf WHERE content_id = 5000;28.318733

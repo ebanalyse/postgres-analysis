@@ -1,0 +1,5 @@
+CREATE TABLE vguffiewnkgheufe (partition_id INT NOT NULL, user_id INT NOT NULL, PRIMARY KEY (partition_id, user_id)) PARTITION BY LIST(partition_id);0.003413
+CREATE TABLE qrnqdtnqnqcuuhnf PARTITION OF vguffiewnkgheufe FOR VALUES IN (1);0.003891
+EXPLAIN ANALYZE INSERT INTO vguffiewnkgheufe (partition_id, user_id) SELECT 1 AS partition_id, generate_series AS user_id FROM generate_series(1, 10000);0.017872
+EXPLAIN ANALYZE SELECT user_id FROM qrnqdtnqnqcuuhnf;0.001842
+ALTER TABLE vguffiewnkgheufe RENAME COLUMN user_id TO user_id_int;0.000293

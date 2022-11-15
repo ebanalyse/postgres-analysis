@@ -1,0 +1,5 @@
+EXPLAIN ANALYZE CREATE TABLE pokjbellnilqjxvi AS SELECT ROUND(RANDOM() * 50000) AS user_id, ('{ekstrabladet,jyllandsposten,politiken}'::TEXT[])[ROUND(RANDOM() * 2)] AS platform FROM generate_series(1, 10000000);11.081974
+CREATE VIEW temp_view AS (SELECT user_id FROM (SELECT user_id, COUNT(*) AS rows FROM pokjbellnilqjxvi GROUP BY user_id ORDER BY rows DESC LIMIT 1) q);0.00235
+CREATE MATERIALIZED VIEW temp_mat_view AS (SELECT user_id FROM (SELECT user_id, COUNT(*) AS rows FROM pokjbellnilqjxvi GROUP BY user_id ORDER BY rows DESC LIMIT 1) q);1.417101
+EXPLAIN ANALYZE SELECT * FROM temp_view;2.109293
+EXPLAIN ANALYZE SELECT * FROM temp_mat_view;0.001176

@@ -1,0 +1,18 @@
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE apjkixjhhrewhquv AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.36926
+EXPLAIN ANALYZE 
+            SELECT apjkixjhhrewhquv.id FROM apjkixjhhrewhquv WHERE apjkixjhhrewhquv.id = 250
+            UNION
+            SELECT apjkixjhhrewhquv.id FROM apjkixjhhrewhquv WHERE apjkixjhhrewhquv.id = 750
+            ;0.105859
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE zltgvqlvuiiojwmh AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.365019
+EXPLAIN ANALYZE SELECT zltgvqlvuiiojwmh.id FROM zltgvqlvuiiojwmh WHERE zltgvqlvuiiojwmh.id IN (250, 750);0.069338
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE yjbeeozqmtmtlnsp AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.361772
+CREATE INDEX ON yjbeeozqmtmtlnsp (id);0.482285
+EXPLAIN ANALYZE 
+            SELECT yjbeeozqmtmtlnsp.id FROM yjbeeozqmtmtlnsp WHERE yjbeeozqmtmtlnsp.id = 250
+            UNION
+            SELECT yjbeeozqmtmtlnsp.id FROM yjbeeozqmtmtlnsp WHERE yjbeeozqmtmtlnsp.id = 750
+            ;0.007664
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE pyjshrhfypyrbfgy AS SELECT round(random() * 1000) id FROM generate_series(1, 1000000);0.361457
+CREATE INDEX ON pyjshrhfypyrbfgy (id);0.477323
+EXPLAIN ANALYZE SELECT pyjshrhfypyrbfgy.id FROM pyjshrhfypyrbfgy WHERE pyjshrhfypyrbfgy.id IN (250, 750);0.008262

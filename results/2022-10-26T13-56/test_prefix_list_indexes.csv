@@ -1,0 +1,6 @@
+EXPLAIN ANALYZE SELECT * FROM wqlrbaaooykqubbm WHERE sections LIKE '^([[:digit:]]+_)*1500(_[[:digit:]]+)*$';0.69631
+CREATE INDEX ON zoqzzqsgjaucditz USING btree (sections);27.966702
+EXPLAIN ANALYZE SELECT * FROM zoqzzqsgjaucditz WHERE sections LIKE '^([[:digit:]]+_)*1500(_[[:digit:]]+)*$';0.76181
+EXPLAIN ANALYZE SELECT * FROM rtkzvdacuscpvjpb WHERE sections @@ to_tsquery('english', '1500_:*');1.078933
+CREATE INDEX ON xkwnkpctuhyhegid USING gin (sections);2.106218
+EXPLAIN ANALYZE SELECT * FROM xkwnkpctuhyhegid WHERE sections @@ to_tsquery('english', '1500_:*');0.027036

@@ -1,0 +1,20 @@
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE klbrnqcxkmeatciq AS SELECT ROUND(RANDOM() * 10000) AS content_id, gen_random_uuid() AS user_id FROM generate_series(1, 10000000);12.009914
+EXPLAIN ANALYZE SELECT user_id FROM klbrnqcxkmeatciq WHERE content_id = 5000;0.308956
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE cyoyzevpkuisryzd AS SELECT ROUND(RANDOM() * 10000) AS content_id, gen_random_uuid() AS user_id FROM generate_series(1, 10000000);11.257838
+CREATE INDEX ON cyoyzevpkuisryzd (content_id);5.27044
+EXPLAIN ANALYZE SELECT user_id FROM cyoyzevpkuisryzd WHERE content_id = 5000;0.00404
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE yhrnrnzeiplgzrlt AS SELECT ROUND(RANDOM() * 10000) AS content_id, gen_random_uuid() AS user_id FROM generate_series(1, 10000000);12.04776
+CREATE INDEX ON yhrnrnzeiplgzrlt (content_id, user_id);6.674401
+EXPLAIN ANALYZE SELECT user_id FROM yhrnrnzeiplgzrlt WHERE content_id = 5000;0.004154
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE trbbfkwoydgalxdw AS SELECT ROUND(RANDOM() * 10000) AS content_id, gen_random_uuid() AS user_id FROM generate_series(1, 10000000);11.15525
+CREATE INDEX ON trbbfkwoydgalxdw (content_id) INCLUDE (user_id);5.688509
+EXPLAIN ANALYZE SELECT user_id FROM trbbfkwoydgalxdw WHERE content_id = 5000;0.004126
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE cfginkybkgiftjwl AS SELECT gen_random_uuid() AS user_id, ROUND(RANDOM() * 10000) AS content_id FROM generate_series(1, 10000000);11.297244
+CREATE INDEX ON cfginkybkgiftjwl (user_id);5.284516
+EXPLAIN ANALYZE SELECT user_id FROM cfginkybkgiftjwl WHERE content_id = 5000;0.327409
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE fzxifymefllbcgbu AS SELECT gen_random_uuid() AS user_id, ROUND(RANDOM() * 10000) AS content_id FROM generate_series(1, 10000000);11.900605
+CREATE INDEX ON fzxifymefllbcgbu (user_id, content_id);5.447424
+EXPLAIN ANALYZE SELECT user_id FROM fzxifymefllbcgbu WHERE content_id = 5000;0.323765
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE hfnaoxecgkrfwhgu AS SELECT gen_random_uuid() AS user_id, ROUND(RANDOM() * 10000) AS content_id FROM generate_series(1, 10000000);11.394947
+CREATE INDEX ON hfnaoxecgkrfwhgu (user_id) INCLUDE (content_id);5.458966
+EXPLAIN ANALYZE SELECT user_id FROM hfnaoxecgkrfwhgu WHERE content_id = 5000;0.335019

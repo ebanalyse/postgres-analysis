@@ -1,0 +1,3 @@
+EXPLAIN ANALYZE CREATE TABLE yvfqhhtlyhhrdufd AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.903129
+EXPLAIN ANALYZE CREATE UNLOGGED TABLE aypvbywwmtsumwhp AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.533309
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE ykweurymhfghupjx AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.519718

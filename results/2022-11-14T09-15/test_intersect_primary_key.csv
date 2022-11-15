@@ -1,0 +1,13 @@
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE bxhnxsuuinhyvwbb AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.304242
+ALTER TABLE bxhnxsuuinhyvwbb ADD PRIMARY KEY (id);0.153691
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE nifasieccmnlnnyc AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.322932
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE gbjridxhopqiyibi AS SELECT bxhnxsuuinhyvwbb.id FROM bxhnxsuuinhyvwbb INTERSECT SELECT nifasieccmnlnnyc.id FROM nifasieccmnlnnyc;0.803453
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE fyyrqbmgnmzqenau AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.303706
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE viggnpqjsnptzuls AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.300522
+ALTER TABLE viggnpqjsnptzuls ADD PRIMARY KEY (id);0.146424
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE zfpiubepxwjfndhy AS SELECT fyyrqbmgnmzqenau.id FROM fyyrqbmgnmzqenau INTERSECT SELECT viggnpqjsnptzuls.id FROM viggnpqjsnptzuls;0.795825
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE uspwgsrgvykwneyc AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.304241
+ALTER TABLE uspwgsrgvykwneyc ADD PRIMARY KEY (id);0.144511
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE qwufcuumawzylenr AS SELECT generate_series AS id FROM generate_series(1, 1000000);0.307489
+ALTER TABLE qwufcuumawzylenr ADD PRIMARY KEY (id);0.142329
+EXPLAIN ANALYZE CREATE TEMPORARY TABLE popfnbpocwobacsy AS SELECT uspwgsrgvykwneyc.id FROM uspwgsrgvykwneyc INTERSECT SELECT qwufcuumawzylenr.id FROM qwufcuumawzylenr;1.12203

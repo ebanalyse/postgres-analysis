@@ -37,14 +37,11 @@ from .utils import execute_and_measure
         ],
     ],
 )
-def test_performance(
-    postgres_connection, random_tablename: str, statements: str | list[str]
-):
+def test_performance(postgres_connection, random_tablename: str, statements: str | list[str], test_run_start_time):
     execute_and_measure(
         postgres_connection,
         random_tablename,
-        (
-            statements
-            + ["SELECT user_id FROM {tablename.history[-1]} WHERE content_id = 5000"]
-        ),
+        (statements + ["SELECT user_id FROM {tablename.history[-1]} WHERE content_id = 5000"]),
+        __file__,
+        test_run_start_time,
     )
